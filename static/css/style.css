@@ -25,6 +25,7 @@
         letter-spacing: 20px;
         font-family: 'Alkalami', serif;
         font-family: 'Dancing Script', cursive;
+        color: #c69f73;
 }
 
 .blog_heading_by{
@@ -47,7 +48,22 @@
     /* background-size: contain; */
     background-repeat: no-repeat;
     background-size: cover;
+    /* background-color: #efefef; */
+    /* opacity: 0.1; */
    
+}
+.card{
+    opacity: 1;
+}
+
+@supports () {
+    /*  Style to apply  */
+ }
+
+.card-body{
+    /* background: #efefef; */
+    background-color: #efefef;
+    /* opacity: 0.1; */
 }
 .second_item{
     background: url('../image/shiv-prasad-OPWM488DfeQ-unsplash.jpg');
@@ -70,9 +86,21 @@
 }
 
 
+.card-title{
+    font-size: 1.6rem;
+    letter-spacing: 5px;
+    font-family: 'Dancing Script', cursive;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c69f73;
+}
+.card-text{
+    font-family: 'Alkalami', serif;
+}
+
 /* for all */
 .btn{
     border: 1px solid #c69f73;
+    font-family: 'Open Sans', sans-serif;
 }
 .btn:hover{
     background-color: #c69f73;
@@ -81,16 +109,76 @@
     color: #c69f73;
 }
 
+span{
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
 /* blog and about section */
+.top_blog{
+    font-family: 'Alkalami', serif;
+    font-size: 1.9rem;
+    letter-spacing: 4px;
+    /* text-decoration: underline; */
+}
 .first_blog{
     border-bottom: 1px solid #c69f73;
 }
+.heading_date{
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 2px;
+    font-size: .9rem;
+    float: right;
+}
+.first_ifo{
+    margin-top: 15px;
+    font-size: 1.2rem;
+    padding: 0 8%;
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 1px;
+}
+
+.first_heading{
+    margin-top: 10px;
+    font-family: 'Dancing Script', cursive;
+    letter-spacing: 5px;
+    color: #c69f73;
+}
+
+.extra_blog img{
+    /* border-radius: 50%; */
+    margin-bottom: 10px;
+}
+
+.extra_blog .h3{
+    font-size: 1.9rem;
+    font-family: 'Dancing Script', cursive;
+    color: #c69f73;
+    letter-spacing: 4px;
+}
+
+.extra_blog p{
+    padding: 0 8%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.extra_blog span{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: .9rem;
+    float: right;
+    padding: 0 8%;
+    letter-spacing: 2px;
+}
+
+
 
 .tobe_borderd{
+    font-family: 'Alkalami', serif;
+    height: 35px;
     width: 75%;
     border: 1px solid #c69f73;
+    font-size: 1.3rem;
     margin: auto;
+    letter-spacing: 3px;
+    padding-top: 5px;
 }
 .profile_img{
     
@@ -100,7 +188,20 @@
     height: 220px;
 }
 .profile_text{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
     padding: 5%;
+}
+
+.fands{
+    height: 45px;
+    padding-top: 8px;
+}
+.subscribe{
+    /* border: 1px solid black; */
+    width: 75%;
+    margin: auto;
 }
 
 .profile_text a{
@@ -108,11 +209,50 @@
     text-decoration: none;
 }
 .subscribe .fa-brands{
-    font-size: 1.2rem;
+    padding: 0 4px;
+    margin-right: 24px;
+    font-size: 1.6rem;
     color: black;
 }
 
 .subscribe .fa-brands:hover{
     color: #c69f73;
     
+}
+
+.newsletter{
+    width: 75%;
+    height: 200px;
+    /* border: 1px solid black; */
+    margin: auto;
+    padding: 3%;
+    background-color: #efefef;
+}
+.newsletter p{
+    font-family:  'Dancing Script', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.newsletter input{
+    border: 2px solid #c69f73;
+    padding: 0 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 1.2rem;
+    letter-spacing: 2px;
+    height: 35px;
+    /* border-radius: 15px; */
+}
+.newsletter .btn{
+    color: #fff;
+    background-color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.newsletter .btn:hover{
+    color: black;
+    background: #efefef;
+    border: 2px solid #c69f73;
 }
