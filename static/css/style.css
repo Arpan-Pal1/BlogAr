@@ -1,0 +1,118 @@
+/* body section */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* nav section */
+
+.navbar-toggler{
+    border: none;
+    font-size: 0.9rem;
+}
+
+.nav-item{
+    font-size: 1.1rem;
+    margin-right: 3%;
+}
+
+/* blog heading section */
+
+.blog_heading{
+        font-size: 3.5rem;
+        letter-spacing: 20px;
+        font-family: 'Alkalami', serif;
+        font-family: 'Dancing Script', cursive;
+}
+
+.blog_heading_by{
+    font-size: 1.9rem;
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+
+/* carousel_section */
+
+.carousel-inner{
+    height: 65vh;
+}
+
+.carousel-item{
+    width: 100%;
+    height: 65vh;
+    /* border: 1px solid black; */
+    background: url('../image/Durga-Puja.webp');
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.second_item{
+    background: url('../image/shiv-prasad-OPWM488DfeQ-unsplash.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.third_item{
+    background: url('../image/joy-amed-1I07SYGwuys-unsplash.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel_item{
+    width: 400px;
+    
+    margin: auto;
+}
+
+
+/* for all */
+.btn{
+    border: 1px solid #c69f73;
+}
+.btn:hover{
+    background-color: #c69f73;
+}
+.fa-brands{
+    color: #c69f73;
+}
+
+
+/* blog and about section */
+.first_blog{
+    border-bottom: 1px solid #c69f73;
+}
+
+.tobe_borderd{
+    width: 75%;
+    border: 1px solid #c69f73;
+    margin: auto;
+}
+.profile_img{
+    
+    border: 1px solid #c69f73;
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+}
+.profile_text{
+    padding: 5%;
+}
+
+.profile_text a{
+    color: #c69f73;
+    text-decoration: none;
+}
+.subscribe .fa-brands{
+    font-size: 1.2rem;
+    color: black;
+}
+
+.subscribe .fa-brands:hover{
+    color: #c69f73;
+    
+}

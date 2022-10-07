@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block body %}
+<!-- carousel section -->
+<div class="container  mt-5">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner w-100 ">
+      <div class="carousel-item first_item active d-flex justify-content-center align-item-center">
+
+        <div class="carousel_item text-center" ">
+                
+                      
+                      <div class=" card" style="background-color: #efefef;">
+          <div class="card-body">
+            <h5 class="card-title">Durgapuja</h5>
+            <p class="card-text">Read About Kolkata's Durgapuja</p>
+            <a href="#" class="btn ">Full BLog</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-item  second_item d-flex justify-content-center align-item-center">
+      <div class="carousel_item text-center" ">
+                
+                      
+         <div class=" card">
+        <div class="card-body">
+          <h5 class="card-title">Varanasi</h5>
+          <p class="card-text">Read About The City Which Is Older Than Time
+          </p>
+          <a href="#" class="btn ">Full Blog</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="carousel-item third_item d-flex justify-content-center align-item-center">
+    <div class="carousel_item text-center" ">
+              
+
+        <div class=" card">
+      <div class="card-body">
+        <h5 class="card-title">Darjeeling</h5>
+        <p class="card-text">Read About The Queen Of West Bengal</p>
+        <a href="#" class="btn ">Full Blog</a>
+      </div>
+    </div>
+    <!-- </div>
+                  
+                </div> -->
+  </div>
+</div>
+</div> 
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
+</div>
+</div>
+
+
+<!-- blog -->
+<div class="container blog_and_about mt-3">
+<div class="row">
+  <div class="blog col-lg-8 col-sm-12">
+    <div class="blog_title">
+      <h3 class="text-center">Top Blog</h3>
+      <div class="row text-center">
+        <div class="col col-lg-12 col-sm-12 first_blog">
+          <h2>Exploring the beauty of Kerala</h2>
+          <p>October 07, 2022</p>
+          <img src="{{ url_for('static', filename='../static/image/nature-photographer-29ezCWtMtnM-unsplash.jpg') }}" alt="" width="100%">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus doloribus maiores sint quo soluta corrupti repellendus ratione deleniti molestiae laborum voluptates debitis illo, architecto corporis assumenda distinctio. Illo, ipsam iure! Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia esse animi nemo odit eveniet pariatur distinctio incidunt quia quam, accusamus nesciunt veniam vitae consequatur consequuntur deleniti eligendi dicta praesentium illo?</p>
+
+          <div class="btn">Read More</div>
+          <br>
+          <span style="float: left;">0 Comment</span> 
+          <span style="float: right;">
+          <span class="me-3" >Share </span> 
+          <i class="fa-brands fa-facebook-f me-2"></i>
+            <i class="fa-brands fa-twitter me-2"></i>
+            <i class="fa-brands fa-instagram me-2"></i>
+            
+            <i class="fa-brands fa-pinterest-p me-2"></i>
+          </span>
+        </div>
+        <div class="col col-lg-6 col-sm-12 mt-3">
+          <img src="{{ url_for('static', filename='../static/image/sreehari-devadas--TRBEN9BYgY-unsplash.jpg') }}" alt="" width="80%" height="250px">
+          <p class="h3">Rajasthan Diary</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum expedita eum </p>
+          <span style="float: left;">July 14, 2022</span>
+        </div>
+        <div class="col col-lg-6 col-sm-12 mt-3">
+        <img src="{{ url_for('static', filename='../static/image/anuj-chauhan-LQ_SoWQDk84-unsplash.jpg') }}" alt="" width="80%" height="250px">
+        <p class="h3">Lakshadweep The Beauty</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum expedita eum </p>
+          <span style="float: left;">June 14, 2022</span>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="about col-lg-4 col-sm-12 mt-3">
+  <div class="about text-center">
+    <p class="tobe_borderd">About</p>
+    <img src="{{ url_for('static', filename='../static/image/julian-wan-WNoLnJo7tS8-unsplash.jpg') }}" alt="" class="profile_img mt-5">
+    <p class="mt-3 profile_text">Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingestace fanny pack nostrud. Seitan... <a href="#"> Read More</a></p>
+    <div class="mt-3">
+      <p class="tobe_borderd">Follow and Subscribe</p>
+      <div class="mt-5 subscribe">
+        <i class="fa-brands fa-facebook-f me-3"></i>
+            <i class="fa-brands fa-twitter me-3"></i>
+            <i class="fa-brands fa-instagram me-3"></i>
+            <i class="fa-brands fa-snapchat me-3"></i>
+            <i class="fa-brands fa-pinterest-p me-3"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+
+
+{% endblock body %}
