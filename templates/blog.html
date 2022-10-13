@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container mt-5 p-5">
+        <div class="row">
+            <div class="col-lg-8 col-sm-12 pe-5">
+                <div class="h3 all_blog">All blogs</div>
+                <div class="post mb-3">
+                    <p class="h2 heading_blog"><a href="{{ url_for('blog', id=1) }}"> This is the heading of the blog</a></p>
+                    <p>This is the subtilte of the vlog, <span>October 9, 2022</span></p>
+                    <span>0 Comments</span> <span style="float: right;"><i class="fa-regular fa-pen-to-square"></i> <i class="fa-solid fa-trash ms-3"></i></span>
+                </div>
+            </div> 
+            <div class="col-lg-4 col-sm-12">
+                <div class="h4">Recent Post</div>
+            </div> 
+
+        </div>
+    </div>
+{% endblock body %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <form method="post">
+            
+            {{form.title.label()}}
+            {{ form.title(class="control-flow") }}
+            {{form.subtitle.label()}}
+            {{form.subtitle()}}
+            {{ form.body() }}
+            {{form.body.label()}}
+            {{ ckeditor.load() }}
+            {{ ckeditor.config(name='body') }}
+        </form>
+        
+         
+         
+    </div>
+{% endblock body %}

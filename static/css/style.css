@@ -271,3 +271,27 @@ span{
 @media  {
     
 }
+
+
+
+
+/* blog page */
+.all_blog{
+    font-family: 'Alkalami', serif;
+    letter-spacing: 4px;
+    font-size: 2.5rem;
+}
+
+.heading_blog a{
+    color: #212529;
+    text-decoration: none;
+}
+
+.heading_blog a:hover{
+    font-weight: bold;
+    color: #c69f73;
+    text-decoration: underline;
+}
+.post{
+    border-bottom: 1px solid #c69f73;
+}
