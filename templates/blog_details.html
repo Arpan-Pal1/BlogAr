@@ -1,24 +1,31 @@
 {% extends 'base.html' %}
 
 {% block body %}
+
     <div class="container mt-5 p-5">
         <div class="row">
             <div class="col-lg-8 col-sm-12 pe-5">
                 <div class="h3 all_blog">All blogs</div>
-                {% for blog in blogs  %}
+                
                 <div class="post mb-3">
                     <p class="h2 heading_blog"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></p>
                     <p>{{blog.subtitle}},<span> {{blog.date}}</span></p>
+                    <p>{{blog.body|safe}}</p>
+                    <br>
                     <span>0 Comments</span> <span style="float: right;"><a href="{{ url_for('update', id=blog.id) }}"><i class="fa-regular fa-pen-to-square"></i></a> <a href="{{ url_for('delete',id=blog.id) }}"><i class="fa-solid fa-trash ms-3"></i></a></span>
+                    <div class="container">
+                        
+                        
+                    </div>
                 </div>
-                {% endfor %}
+                
                 
             </div> 
             <div class="col-lg-4 col-sm-12">
                 <div class="h4">Recent Post</div>
                 <ul>
                     {% for blog in blogs[:-6:-1]  %}
-                    <li class="blog_title mt-3"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></li>
+                        <li class="blog_title mt-3"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></li>
                     {% endfor %}
                 </ul>
             </div> 

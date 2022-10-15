@@ -295,3 +295,34 @@ span{
 .post{
     border-bottom: 1px solid #c69f73;
 }
+
+
+
+
+/* blog page */
+
+.blog_title a,li{
+    color: #c69f73;
+    text-decoration: none;
+}
+
+
+.blog_title a:hover,.blog_title li:hover{
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.post span i{
+    
+    cursor: pointer;
+}
+
+.post span i:hover{
+    font-size: 1.2rem;
+    color: #c69f73;
+}
+
+.post span a{
+    color: #212529;
+    text-decoration: none;
+}

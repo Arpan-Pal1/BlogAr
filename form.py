@@ -20,4 +20,5 @@ class PostBlog(FlaskForm):
     title = StringField(label="Enter the Blog title", validators=[DataRequired()])
     subtitle = StringField(label="Enter the sub-title", validators=[DataRequired()])
     # author = StringField(label="name")
-    body = CKEditorField('body', validators=[DataRequired()])
+    body = CKEditorField('Body', validators=[DataRequired()])
+    submit = SubmitField("Submit")
