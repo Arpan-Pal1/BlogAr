@@ -22,3 +22,8 @@ class PostBlog(FlaskForm):
     # author = StringField(label="name")
     body = CKEditorField('Body', validators=[DataRequired()])
     submit = SubmitField("Submit")
+
+
+class CommentForm(FlaskForm):
+    body = CKEditorField('Write your comment here', validators=[DataRequired()])
+    submit = SubmitField("Submit")

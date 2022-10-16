@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from functools import wraps
 
-from form import LoginForm, Registration, PostBlog
+from form import LoginForm, Registration, PostBlog, CommentForm
 from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
 
@@ -124,7 +124,9 @@ def blog():
 def blog_details(id):
     individual_blog = Blog.query.get(id)
     blogs = db.session.query(Blog).all()
-    return render_template("blog_details.html", blog=individual_blog, blogs=blogs, current_user=current_user)
+    comment = CommentForm()
+    return render_template("blog_details.html", blog=individual_blog, blogs=blogs, current_user=current_user,
+                           form=comment)
 
 
 @app.route("/post", methods=["POST", "GET"])
