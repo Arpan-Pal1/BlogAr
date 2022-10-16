@@ -55,14 +55,16 @@
                 <a class="nav-link" href="#">Contact</a>
               </li>
           
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login')}}">Login</a>
-              </li>
-                
-              
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login')}}">Login</a>
-              </li>
+              {% if not current_user.is_authenticated: %}
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+  </li>
+  
+{% else: %}
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('logout') }}">LogOut</a>
+  </li>
+{% endif %}
             </ul>
           </div>
           <div class="contact_icons pe-2">
