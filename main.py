@@ -2,14 +2,13 @@ from flask import Flask, render_template, request, redirect, flash, url_for, abo
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from functools import wraps
-
 from form import LoginForm, Registration, PostBlog, CommentForm
 from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
-
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Integer, String, Column, DateTime
+from sqlalchemy import Integer, String, Column, ForeignKey
+from sqlalchemy.orm import relationship
 
 app = Flask(__name__)
 
@@ -24,9 +23,11 @@ db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
+
 
 def admin_only(f):
     @wraps(f)
@@ -34,22 +35,35 @@ def admin_only(f):
         if current_user.id != 1:
             return abort(403)
         return f(*args, **kwargs)
+
     return decorated_function
 
 
 class Blog(db.Model, UserMixin):
+    __tablename__ = 'blog'
     id = Column(Integer, primary_key=True)
     title = Column(String(250))
     subtitle = Column(String(250))
     date = Column(String(20))
     body = Column(String(250))
+    blogs = relationship('Comment', cascade='all, delete', backref='blog', lazy=True)
 
 
 class User(db.Model, UserMixin):
+    __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
     email = Column(String(50))
     password = Column(String(50))
+    comments = relationship('Comment', cascade='all, delete', backref='user', lazy=True)
+
+
+class Comment(db.Model, UserMixin):
+    __tablename__ = 'comment'
+    id = Column(Integer, primary_key=True)
+    text = Column(String(250))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    blog_id = Column(Integer, ForeignKey('blog.id'))
 
 
 db.create_all()
@@ -120,13 +134,22 @@ def blog():
     return render_template("blog.html", blogs=all_blog, current_user=current_user, logged_in=True)
 
 
-@app.route("/blog/<int:id>")
+@app.route("/blog/<int:id>", methods=["POST", "GET"])
 def blog_details(id):
     individual_blog = Blog.query.get(id)
     blogs = db.session.query(Blog).all()
-    comment = CommentForm()
+    commentform = CommentForm()
+
+    if request.method == "POST":
+        print("inside")
+        text = commentform.body.data
+        comment = Comment(text=text, user=current_user, blog=individual_blog)
+        print(text)
+        db.session.add(comment)
+        db.session.commit()
+        return redirect('/blog')
     return render_template("blog_details.html", blog=individual_blog, blogs=blogs, current_user=current_user,
-                           form=comment)
+                           form=commentform)
 
 
 @app.route("/post", methods=["POST", "GET"])
@@ -170,7 +193,19 @@ def delete(id):
     blog_to_delete = Blog.query.get(id)
     db.session.delete(blog_to_delete)
     db.session.commit()
-    return redirect("/blog", current_user=current_user)
+    return redirect("/blog")
+
+
+# @app.route("/comments", methods=["POST", "GET"])
+# @login_required
+# def comments():
+#     if request.method == "POST":
+#         text = request.form.get('body')
+#         comment = Comment(text=text, user=current_user)
+#         db.session.add(comment)
+#         db.session.commit()
+#         return redirect('/blog')
+#     return render_template("blog_details.html")
 
 
 if __name__ == '__main__':

@@ -12,22 +12,27 @@
                 <p>{{blog.subtitle}},<span> {{blog.date}}</span></p>
                 <p>{{blog.body|safe}}</p>
                 <br>
-                <span>0 Comments</span> <span style="float: right;"><a href="{{ url_for('update', id=blog.id) }}"><i
-                            class="fa-regular fa-pen-to-square"></i></a> <a href="{{ url_for('delete',id=blog.id) }}"><i
-                            class="fa-solid fa-trash ms-3"></i></a></span>
+                <span>0 Comments</span> {% if current_user.id == 1 %}
+                        
+                <span style="float: right;"><a href="{{ url_for('update', id=blog.id) }}"><i class="fa-regular fa-pen-to-square"></i></a> <a href="{{ url_for('delete',id=blog.id) }}"><i class="fa-solid fa-trash ms-3"></i></a></span>
+                {% endif %}
             </div>
             <div class="container w-100">
                 <form action="" method="post" class="mt-5">
                     {{ ckeditor.load() }}
                     <label for="comment" class="h3 mb-3 p-0">Leave a comment</label>
-                    {{ckeditor.create()}}
+                    
 
-                    {{ ckeditor.config(name='body') }}
+                    
+                    {{form.body(class="form-control")}}
+
                     {% if not current_user.is_authenticated: %}
 
                     <a href="" class="btn mt-3" disabled="true" onclick=notice()>Submit</a>
                     {% else: %}
-                    <a href="" class="btn mt-3" type="submit">Submit</a>
+                    
+                    <button type="submit" class="btn mt-3">Submit</button>
+                    
                     {% endif %}
                 </form>
 
@@ -38,9 +43,18 @@
         <div class="col-lg-4 col-sm-12">
             <div class="h4">Recent Post</div>
             <ul>
+                {% if blogs|length >5 %}
                 {% for blog in blogs[:-6:-1] %}
                 <li class="blog_title mt-3"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></li>
                 {% endfor %}
+                    
+                {% else %}
+                {% for blog in blogs[::-1] %}
+                <li class="blog_title mt-3"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></li>
+                {% endfor %}
+                {% endif %}
+                
+               
             </ul>
         </div>
 
