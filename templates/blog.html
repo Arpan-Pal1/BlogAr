@@ -7,12 +7,10 @@
                 <div class="h3 all_blog">All blogs</div>
                 {% for blog in blogs  %}
                 <div class="post mb-3">
-                    <p class="h2 heading_blog"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></p>
-                    <p>{{blog.subtitle}},<span> {{blog.date}}</span></p>
-                    <span>0 Comments</span> 
+                    <p class="h2 heading_blog"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a><p><span style="letter-spacing: 2px;">{{blog.subtitle}},</span><span style="font-family: 'Dancing Script', cursive;"> {{blog.date}}</span></p>
                     {% if current_user.id == 1 %}
                         
-                    <span style="float: right;"><a href="{{ url_for('update', id=blog.id) }}"><i class="fa-regular fa-pen-to-square"></i></a> <a href="{{ url_for('delete',id=blog.id) }}"><i class="fa-solid fa-trash ms-3"></i></a></span>
+                    <span style="visibility: hidden;"> .</span><span style="float: right;"><a href="{{ url_for('update', id=blog.id) }}"><i class="fa-regular fa-pen-to-square"></i></a> <a href="{{ url_for('delete',id=blog.id) }}"><i class="fa-solid fa-trash ms-3"></i></a></span>
                     {% endif %}
                 </div>
                 {% endfor %}
@@ -30,4 +28,12 @@
 
         </div>
     </div>
+
+
+
+    <div class="container mt-5 footer">
+        <p class="text-center mt-3">Copyright © 2022, All rights reserved. Designed & Developed by Arpan Pal</p>
+      
+        <!-- <p class="text-center">© by Arpan 2022</p> -->
+      </div>
 {% endblock body %}

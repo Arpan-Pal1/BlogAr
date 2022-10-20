@@ -27,3 +27,5 @@ class PostBlog(FlaskForm):
 class CommentForm(FlaskForm):
     # body = CKEditorField('Write your comment here', validators=[DataRequired()])
     body = TextAreaField(label="Enter your comment here", validators=[DataRequired()])
+
+

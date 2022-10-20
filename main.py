@@ -9,6 +9,7 @@ from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, Column, ForeignKey
 from sqlalchemy.orm import relationship
+from flask_gravatar import Gravatar
 
 app = Flask(__name__)
 
@@ -68,10 +69,26 @@ class Comment(db.Model, UserMixin):
 
 db.create_all()
 
+# gravatar implementation
+
+gravatar = Gravatar(app,
+                    size=100,
+                    rating='g',
+                    default='retro',
+                    force_default=False,
+                    force_lower=False,
+                    use_ssl=False,
+                    base_url=None)
+
+
+
+
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    blogs = db.session.query(Blog).all()
+    print(blogs)
+    return render_template("index.html", blogs=blogs)
 
 
 @app.route("/login", methods=["POST", "GET"])
@@ -116,7 +133,8 @@ def registration():
                 new_user = User(name=name, email=email, password=hashed_password)
                 db.session.add(new_user)
                 db.session.commit()
-                load_user(new_user.id)
+                login_user(new_user)
+
                 return redirect('/blog')
             else:
                 flash("please enter password correctly")
@@ -139,7 +157,9 @@ def blog_details(id):
     individual_blog = Blog.query.get(id)
     blogs = db.session.query(Blog).all()
     commentform = CommentForm()
+    comments = Comment.query.filter_by(blog_id=id).all()
 
+    print(comments)
     if request.method == "POST":
         print("inside")
         text = commentform.body.data
@@ -149,7 +169,7 @@ def blog_details(id):
         db.session.commit()
         return redirect('/blog')
     return render_template("blog_details.html", blog=individual_blog, blogs=blogs, current_user=current_user,
-                           form=commentform)
+                           form=commentform, comments=comments, gravatar=gravatar)
 
 
 @app.route("/post", methods=["POST", "GET"])

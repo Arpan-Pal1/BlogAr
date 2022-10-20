@@ -5,6 +5,9 @@
     box-sizing: border-box;
 }
 
+i{
+    cursor: pointer;
+}
 
 /* nav section */
 
@@ -44,7 +47,7 @@
     width: 100%;
     height: 65vh;
     /* border: 1px solid black; */
-    background: url('../image/Durga-Puja.webp');
+    background: url('../image/hitesh-choudhary-D9Zow2REm8U-unsplash.jpg');
     /* background-size: contain; */
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,14 +69,14 @@
     /* opacity: 0.1; */
 }
 .second_item{
-    background: url('../image/shiv-prasad-OPWM488DfeQ-unsplash.jpg');
-    background-size: contain;
+    background: url('../image/emile-perron-xrVDYZRGdw4-unsplash.jpg');
+    /* background-size: contain; */
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .third_item{
-    background: url('../image/joy-amed-1I07SYGwuys-unsplash.jpg');
+    background: url('../image/hitesh-choudhary-D9Zow2REm8U-unsplash.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     background-size: cover;
@@ -132,7 +135,7 @@ span{
 .first_ifo{
     margin-top: 15px;
     font-size: 1.2rem;
-    padding: 0 8%;
+    padding: 0 0;
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 1px;
 }
@@ -157,7 +160,7 @@ span{
 }
 
 .extra_blog p{
-    padding: 0 8%;
+    padding: 0 0%;
     font-family: 'Source Sans Pro', sans-serif;
 }
 .extra_blog span{
@@ -174,11 +177,14 @@ span{
     font-family: 'Alkalami', serif;
     height: 35px;
     width: 75%;
-    border: 1px solid #c69f73;
-    font-size: 1.3rem;
+    /* border: 1px solid #c69f73; */
+    font-size: 1.7rem;
     margin: auto;
     letter-spacing: 3px;
     padding-top: 5px;
+}
+.fa-img .fa-brands{
+    margin-right: 36px;
 }
 .profile_img{
     
@@ -200,8 +206,9 @@ span{
 }
 .subscribe{
     /* border: 1px solid black; */
-    width: 75%;
-    margin: auto;
+    width: 100%;
+    /* margin: auto; */
+    background-color: #efefef;
 }
 
 .profile_text a{
@@ -222,7 +229,7 @@ span{
 
 .newsletter{
     width: 75%;
-    height: 200px;
+    height: 225px;
     /* border: 1px solid black; */
     margin: auto;
     padding: 3%;
@@ -230,7 +237,7 @@ span{
 }
 .newsletter p{
     font-family:  'Dancing Script', cursive;
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     letter-spacing: 1px;
     font-weight: bold;
 }
@@ -268,8 +275,10 @@ span{
     font-weight: bold;
 }
 
-@media  {
-    
+@media (max-width: 900px) {
+    .extra_blog{
+        text-align: center;
+    }
 }
 
 
@@ -283,8 +292,10 @@ span{
 }
 
 .heading_blog a{
+    font-size: 2.8rem;
     color: #212529;
     text-decoration: none;
+    letter-spacing: 3px;
 }
 
 .heading_blog a:hover{
@@ -325,4 +336,25 @@ span{
 .post span a{
     color: #212529;
     text-decoration: none;
+}
+
+
+
+/* blog section */
+.blog-body{
+    font-size: 1.9rem;
+}
+
+
+
+
+
+/* comment section */
+.comment{
+    margin-top: 25px;
+}
+
+.comment:hover{
+    /* border-bottom: 1px solid #c69f73; */
+    /* text-decoration: underline; */
 }

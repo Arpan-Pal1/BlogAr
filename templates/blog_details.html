@@ -5,34 +5,53 @@
 <div class="container mt-5 p-5">
     <div class="row">
         <div class="col-lg-8 col-sm-12 pe-5">
-            <div class="h3 all_blog">All blogs</div>
+            <!-- <div class="h3 all_blog">All blogs</div> -->
 
             <div class="post mb-3">
                 <p class="h2 heading_blog"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></p>
-                <p>{{blog.subtitle}},<span> {{blog.date}}</span></p>
-                <p>{{blog.body|safe}}</p>
+                <p><span style="letter-spacing: 2px;">{{blog.subtitle}},</span><span style="font-family: 'Dancing Script', cursive;"> {{blog.date}}</span></p>
+                <p class="mt-5"><span style="font-size: 1.9rem;">{{blog.body|safe}}</span></p>
                 <br>
-                <span>0 Comments</span> {% if current_user.id == 1 %}
-                        
-                <span style="float: right;"><a href="{{ url_for('update', id=blog.id) }}"><i class="fa-regular fa-pen-to-square"></i></a> <a href="{{ url_for('delete',id=blog.id) }}"><i class="fa-solid fa-trash ms-3"></i></a></span>
+                {% if comments|count > 1 %}
+                <span>{{comments|count}} comments</span>
+                {% else %}
+                <span>{{comments|count}} comment</span>
                 {% endif %}
+
+                {% if current_user.id == 1 %}
+
+                <span style="float: right;"><a href="{{ url_for('update', id=blog.id) }}"><i
+                            class="fa-regular fa-pen-to-square"></i></a> <a href="{{ url_for('delete',id=blog.id) }}"><i
+                            class="fa-solid fa-trash ms-3"></i></a></span>
+                {% endif %}
+            </div>
+            <div class="container mt-3 mb-3">
+                
+                    {% for comment in comments %}
+                    <div class="comment">
+                    <img src="{{comment.user.email|gravatar}}" alt="" height="30px" width="30px"
+                        style="border-radius: 50%;"><span class="ms-2">{{comment.user.name|title}}</span>
+                    <p class="" style="margin-left: 36px;">{{comment.text}}</p>
+                </div>
+                    {% endfor %}
+                
             </div>
             <div class="container w-100">
                 <form action="" method="post" class="mt-5">
                     {{ ckeditor.load() }}
                     <label for="comment" class="h3 mb-3 p-0">Leave a comment</label>
-                    
 
-                    
+
+
                     {{form.body(class="form-control")}}
 
                     {% if not current_user.is_authenticated: %}
 
                     <a href="" class="btn mt-3" disabled="true" onclick=notice()>Submit</a>
                     {% else: %}
-                    
+
                     <button type="submit" class="btn mt-3">Submit</button>
-                    
+
                     {% endif %}
                 </form>
 
@@ -47,18 +66,23 @@
                 {% for blog in blogs[:-6:-1] %}
                 <li class="blog_title mt-3"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></li>
                 {% endfor %}
-                    
+
                 {% else %}
                 {% for blog in blogs[::-1] %}
                 <li class="blog_title mt-3"><a href="{{ url_for('blog_details', id=blog.id) }}">{{blog.title}}</a></li>
                 {% endfor %}
                 {% endif %}
-                
-               
+
+
             </ul>
         </div>
 
 
     </div>
 </div>
+<div class="container mt-5 footer">
+    <p class="text-center mt-3">Copyright © 2022, All rights reserved. Designed & Developed by Arpan Pal</p>
+  
+    <!-- <p class="text-center">© by Arpan 2022</p> -->
+  </div>
 {% endblock body %}
